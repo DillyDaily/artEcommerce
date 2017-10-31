@@ -1,0 +1,16 @@
+.admin-footer{
+  background-color: #f9f9f9;
+  padding: 15px;
+}
+
+.admin-login{
+  text-align: center;
+  margin: 15%;
+}
+.admin-page-title{
+  text-align: center;
+  text-transform: uppercase;
+}
+.new-product{
+  text-align: center;
+}
