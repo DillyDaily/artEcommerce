@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 app.set('view engine', 'ejs');
-
+require("./config/sessions.js")(app);
 var routes_setter = require('./config/routes.js');
 routes_setter(app);
 
