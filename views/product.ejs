@@ -101,15 +101,19 @@
 		<div id="cp-product-section">
 			<div class="container">
 				<div class="row">
+
+					<% for (let i=0; i<3; i++) {  %>
+					<%	if (product[i].id === img[i].product_id)  %>
 					<div class="col-md-4 prod text-center animate-box">
-						<div class="product" style="background-image: url(images/art1.jpg);">
-							<a href="#" class="view">
-								<i class="icon-plus"></i>
-							</a>
-						</div>
-						<h3><a href="#">Bag</a></h3>
-						<span class="price">$48</span>
+					<div class="product" style="background-image: url(images/art1.jpg);">
+						<a href="#" class="view">
+							<i class="icon-plus"></i>
+						</a>
 					</div>
+					<h3><a href="#"> <%= product.name[0] %> </a></h3>
+					<span class="price"> <%= product.price[0] %> </span>
+				</div>
+					<% } %>
 					<div class="col-md-4 prod text-center animate-box">
 						<div class="product" style="background-image: url(images/art2.jpg);">
 							<a href="#" class="view">
