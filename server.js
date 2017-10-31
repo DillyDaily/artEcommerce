@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 8000;
 const methodOverride = require("method-override");
 
-app.use(express.static('static'));
+app.use(express.static('public'));
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
