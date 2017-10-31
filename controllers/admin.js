@@ -1,5 +1,5 @@
 const knex = require("../db/knex.js");
-
+const encryption = require("../config/encryption.js");
 module.exports = {
 
   login: function(req, res){
@@ -17,24 +17,32 @@ module.exports = {
       .then((result)=>{
 
         let user = result[0];
-
+        
         encryption.check(user, req.body).then((isValid)=>{
+
           if(isValid){
-            req.session.admin = result.id;
+            req.session.admin = user.id;
 
             req.session.save(()=>{
+
               res.redirect('/admin_dashboard');
             })
 
           }else{
             req.session.message = "You entered an invalid email or password.";
-            res.redirect('/admin_login');
+            req.session.save(()=>{
+              res.redirect('/admin_login');
+            })
+
           }
         })
       })
       .catch((err)=>{
-        req.session.message = "You entered an invalid username or password."
-        res.redirect('/admin_login')
+        req.session.message = "You entered an invalid email or password."
+        req.session.save(()=>{
+          res.redirect('/admin_login');
+        })
+
       })
   },
 

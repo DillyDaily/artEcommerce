@@ -74,6 +74,7 @@ module.exports = function(app){
 
   // USER SESSION FUNCTION
   function userAuth(req, res, next){
+    console.log(req.session);
     if(req.session.user || req.session.admin){
       next();
     }else{
