@@ -1,4 +1,5 @@
 const knex = require("../db/knex.js");
+const encryption = require('../config/encryption.js');
 
 module.exports = {
 
@@ -14,11 +15,11 @@ module.exports = {
         .insert(encryptedUser)
         .then(()=>{
           req.session.message = "You have successfully registered! Please log in.";
-          res.redirect('/contact/:id');
+          res.redirect('/register_login');
         })
         .catch(()=>{
           req.session.message = "You entered invalid data. Please register again."
-          res.redirect('/contact/:id');
+          res.redirect('/register_login');
         })
     })
   },
@@ -36,13 +37,13 @@ module.exports = {
             res.redirect('/');
           }else{
             req.session.message = "You entered an invalid username or password.";
-            res.redirect('/contact/:id');
+            res.redirect('/register_login');
           }
         })
       })
       .catch((err)=>{
         req.session.message = "You entered an invalid username or password."
-        res.redirect('/contact/:id')
+        res.redirect('/register_login')
       })
   }
 
