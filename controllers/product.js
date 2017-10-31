@@ -15,6 +15,19 @@ module.exports = {
       })
   },
 
+  create: function(req, res){
+    knex('product')
+      .insert({})
+  },
+
+  edit: function(req, res) {
+    knex('product')
+
+  },
+
+  update: function(req, res){
+
+  },
 
   delete: function(req, res){
     knex('product')

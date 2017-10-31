@@ -1,0 +1,30 @@
+{
+  "name": "group-project",
+  "version": "1.0.0",
+  "description": "TITLE:  Minimal - Fully Responsive Free HTML5 template",
+  "main": "knexfile.js",
+  "dependencies": {
+    "connect-session-knex": "^1.4.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-sessions": "^1.0.6",
+    "knex": "^0.13.0",
+    "method-override": "^2.3.10",
+    "pg": "^7.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DillyDaily/artEcommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DillyDaily/artEcommerce/issues"
+  },
+  "homepage": "https://github.com/DillyDaily/artEcommerce#readme"
+}
