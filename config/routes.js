@@ -35,7 +35,7 @@ module.exports = function(app){
 
   app.get('/deleteContact/:id', contact.delete);
 
-  app.get('/shoppingCart/:id', shoppingCart.getOne);
+  app.get('/cart/:itemName', items.addToCart);
 
   // EVERYTHING BELOW THIS LINE IS ADMIN PROTECTED
   app.use(adminAuth);
