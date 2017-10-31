@@ -4,6 +4,7 @@
   "description": "TITLE:  Minimal - Fully Responsive Free HTML5 template",
   "main": "knexfile.js",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "connect-session-knex": "^1.4.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",

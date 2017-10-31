@@ -5,18 +5,14 @@ const home = require("../controllers/home.js");
 const product = require("../controllers/product.js");
 const register_login = require("../controllers/register_login.js");
 const shoppingCart = require("../controllers/shoppingCart.js");
-const admin = require("../controllers/admin.js");
-const admin_login = require("../controllers/admin.js");
-const admin_dashboard = require("../controllers/admin_dashboard.js");
-const admin_product_dashboard = ("../controllers/admin_product_dashboard.js");
-const admin_product_category = ("../controllers/admin_product_category.js")
+const admin = require("../controllers/admin.js")
 
 
 module.exports = function(app){
 
   app.get('/', home.index);
 
-  app.get('/products', products.getAll);
+  app.get('/product', product.index);
 
   app.get('/about', about.getAll);
 
