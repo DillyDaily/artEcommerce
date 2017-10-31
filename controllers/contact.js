@@ -6,4 +6,12 @@ module.exports = {
     res.render("contact");
   },
 
+  getOne: function(req, res) {
+    res.send("Hello");
+  },
+
+  delete: function(req, res) {
+    res.send("Delete Me")
+  },
+
 }

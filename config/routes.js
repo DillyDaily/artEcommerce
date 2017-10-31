@@ -12,7 +12,7 @@ module.exports = function(app){
 
   app.get('/', home.index);
 
-  app.get('/products', product.getAll);
+  app.get('/product', product.index);
 
   app.get('/about', about.getAll);
 
