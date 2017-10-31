@@ -9,6 +9,8 @@ exports.up = function(knex, Promise) {
         table.string('product_name');
         table.text('product_description');
         table.integer('quantity');
+        table.decimal('price');
+        table.decimal('sales_tax');
         
         table.timestamps(true, true);
       });
