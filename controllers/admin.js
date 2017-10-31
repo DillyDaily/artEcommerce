@@ -3,10 +3,14 @@ const knex = require("../db/knex.js");
 module.exports = {
 
   login: function(req, res){
-    res.render('register_login', {message: req.session.message});
+
+    if(!req.session.message){
+      req.session.message = "";
+    }
+    res.render('admin_login', {msg: req.session.message});
   },
 
-
+  // Checks admin email and password
   check: function(req, res){
     knex('admin')
       .where('email', req.body.email)
