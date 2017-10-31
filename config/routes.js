@@ -4,7 +4,7 @@ const contact = require("../controllers/contact.js");
 const home = require("../controllers/home.js");
 const product = require("../controllers/product.js");
 const register_login = require("../controllers/register_login.js");
-const shoppingCart = require("../controllers/shoppingCart.js");
+const items = require("../controllers/items.js");
 const admin = require("../controllers/admin.js")
 
 
