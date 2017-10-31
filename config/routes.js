@@ -45,7 +45,7 @@ module.exports = function(app){
   app.use(adminAuth);
 
   // ADMIN DASHBOARD
-  app.get('/admin_dashboard', admin.dashboard);
+  app.get('/admin_dashboard', admin_dashboard.dashboard);
 
   // CATEGORIES
   app.get('/admin_product_category', admin.categoryGetAll);
