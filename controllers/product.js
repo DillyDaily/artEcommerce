@@ -15,9 +15,20 @@ module.exports = {
       })
   },
 
+  addOne: function(req, res){
+    knex('product')
+
+  },
+
   create: function(req, res){
     knex('product')
-      .insert({})
+      .insert({
+        product_name: req.body.name,
+        product_description: req.body.description,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        sales_tax: req.body.tax
+      })
   },
 
   edit: function(req, res) {
