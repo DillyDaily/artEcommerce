@@ -104,6 +104,9 @@
 
 					<div class="col-md-12 animate-box">
 						<h3>Your Item are listed here</h3>
+						<% for(var i = 0; i < cartObj.length; i++) { %>
+							<%= cartObj[i] %>
+						<% } %>
 						<h4>Item Name:</h4>
 						<h4>Quantity:</h4>
 						<h4>Price:</h4>
