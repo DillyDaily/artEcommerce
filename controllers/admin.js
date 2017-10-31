@@ -6,42 +6,31 @@ module.exports = {
     res.render('register_login', {message: req.session.message});
   },
 
-  register: function(req, res){
-    encryption.hash(req.body).then((encryptedUser)=>{
-
-      knex('customer')
-        .insert(encryptedUser)
-        .then(()=>{
-          req.session.message = "You have successfully registered! Please log in.";
-          res.redirect('/contact/:id');
-        })
-        .catch(()=>{
-          req.session.message = "You entered invalid data. Please register again."
-          res.redirect('/contact/:id');
-        })
-    })
-  },
 
   check: function(req, res){
-    knex('contact')
-      .where('username', req.body.username)
+    knex('admin')
+      .where('email', req.body.email)
       .then((result)=>{
 
         let user = result[0];
 
         encryption.check(user, req.body).then((isValid)=>{
           if(isValid){
-            req.session.user = user.id;
-            res.redirect('/');
+            req.session.admin = result.id;
+
+            req.session.save(()=>{
+              res.redirect('/admin_dashboard');
+            })
+
           }else{
-            req.session.message = "You entered an invalid username or password.";
-            res.redirect('/contact/:id');
+            req.session.message = "You entered an invalid email or password.";
+            res.redirect('/admin_login');
           }
         })
       })
       .catch((err)=>{
         req.session.message = "You entered an invalid username or password."
-        res.redirect('/contact/:id')
+        res.redirect('/admin_login')
       })
   },
 
@@ -85,21 +74,12 @@ module.exports = {
   // It makes changes in category - Rahul
   categoryUpdate: function(req, res){
     res.render('Testing Update Category');
-  }
+  },
 
   // It deletes category - Rahul
   categoryDelete: function(req, res){
     res.render('Testing Delete Category');
   }
-
-
-
-
-
-
-
-
-
 
 
 }
