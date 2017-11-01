@@ -4,22 +4,34 @@ const encryption = require('../config/encryption.js');
 module.exports = {
 
   login: function(req, res){
-
-    res.render('customer_login', {message: req.session.message});
+    if(!req.session.userMsg){
+      req.session.userMsg = "";
+    }
+    res.render('customer_login', {message: req.session.userMsg});
   },
 
   register: function(req, res){
     encryption.hash(req.body).then((encryptedUser)=>{
 
       knex('customer')
-        .insert(encryptedUser)
+        .insert({
+          first_name: encryptedUser.first_name,
+          last_name: encryptedUser.last_name,
+          email: encryptedUser.email,
+          password: encryptedUser.password,
+          address: encryptedUser.address,
+          apt_suite: encryptedUser.apt_suite,
+          city: encryptedUser.city,
+          state: encryptedUser.state,
+          zip: encryptedUser.zip
+        })
         .then(()=>{
-          req.session.message = "You have successfully registered! Please log in.";
-          res.redirect('/customer_login');
+          req.session.userMsg = "You have successfully registered! Please log in.";
+          res.redirect('/register_login');
         })
         .catch(()=>{
-          req.session.message = "You entered invalid data. Please register again."
-          res.redirect('/customer_login');
+          req.session.userMsg = "You entered invalid data. Please register again."
+          res.redirect('/register_login');
         })
     })
   },
@@ -34,16 +46,17 @@ module.exports = {
         encryption.check(user, req.body).then((isValid)=>{
           if(isValid){
             req.session.user = user.id;
-            res.redirect('/');
+            res.redirect('/register_login');
+            req.session.userMsg = "You have successfully logged in.";
           }else{
-            req.session.message = "You entered an invalid username or password.";
-            res.redirect('/customer_login');
+            req.session.userMsg = "You entered an invalid email or password.";
+            res.redirect('/register_login');
           }
         })
       })
       .catch((err)=>{
-        req.session.message = "You entered an invalid username or password."
-        res.redirect('/customer_login')
+        req.session.userMsg = "You entered an invalid email or password."
+        res.redirect('/register_login')
       })
   }
 
