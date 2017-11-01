@@ -23,55 +23,48 @@
               <a class="nav-item nav-link active" href="/admin_dashboard">Home
                 <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="/admin_product_category">Product Category</a>
-                <a class="nav-item nav-link" href="/product_dashboard">Product Dashboard</a>
+                <a class="nav-item nav-link" href="/admin_product_dashboard">Product Dashboard</a>
                 <a class="nav-item nav-link" href="/admin_product/add">Create Product</a>
-                <a class="nav-item nav-link" href="#">Image Manager</a>
             </div>
-            <ul>
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/product">Product</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/register_login">Register/Login</a></li>
-                    <li><a href="/cart">Shopping Cart</a></li>
-
-                </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-              <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log Out</button>
-            </form>
+            <a href="/admin_logout"><button type="button" class="btn btn-danger">Log Out</button></a>
           </div>
         </div>
       </nav>
     </header>
     <div class="container">
-      <h1>Hello</h1>
-    </div>
+      <div class="admin-page-title">
+        <br>
+        <h3>Product Dashboard</h3>
+        <br>
+      </div>
 
-    <div id="cp-product-section">
-			<div class="container">
-				<div class="row">
+      <table class="table">
+        <thead class="thead-light">
+          <th>PRODUCT NAME</th>
+          <th>DESCRIPTION</th>
+          <th>IMG URL</th>
+          <th>QUANTITY</th>
+          <th>PRICE</th>
+          <th>SALES TAX</th>
+          </thead>
+        <tbody>
 
 					<% for (let i=0; i<product.length; i++) {  %>
-					<div class="col-md-4 prod text-center animate-box">
-					<div class="product" style="background-image: url(images/art1.jpg);">
-						<a href="#" class="view">
-							<i class="icon-plus"></i>
-						</a>
-                    </div>
+            <tr>
+              <td><%= product[i].product_name %></td>
+              <td><%= product[i].product_description %></td>
+              <td><%= product[i].image %></td>
+              <td><%= product[i].quantity %></td>
+              <td><%= product[i].price %></td>
+              <td><%= product[i].sales_tax %></td>
 
-					<h3><a href="#"> <%= product[i].name %> </a></h3>
-                    <span class="price"> $ <%= product[i].price %> </span>
-                    
-				</div>
+            </tr>
+				  	
 					<% } %>
 					
-				</div>
-			</div>
-		</div>
-
-
-
+				</tbody>
+      </table>
+    </div>
     <footer class="admin-footer">
       <div class="container">
         <div>
