@@ -46,7 +46,9 @@
           <th>QUANTITY</th>
           <th>PRICE</th>
           <th>SALES TAX</th>
-          </thead>
+          <th></th>
+          <th></th>
+        </thead>
         <tbody>
 
 					<% for (let i=0; i<product.length; i++) {  %>
@@ -57,6 +59,8 @@
               <td><%= product[i].quantity %></td>
               <td><%= product[i].price %></td>
               <td><%= product[i].sales_tax %></td>
+              <td class="text-center view-button animate-box"><a href="/editProduct/<%= product[i].id %>" class="btn btn-primary btn-outline btn-lg">Edit</a></td>
+              
 
             </tr>
 				  	
@@ -64,6 +68,9 @@
 					
 				</tbody>
       </table>
+      
+      <div class="text-center view-button animate-box"><a href="/admin_product/add" class="btn btn-primary btn-outline btn-lg">Add a Product</a> </div>
+      
     </div>
     <footer class="admin-footer">
       <div class="container">

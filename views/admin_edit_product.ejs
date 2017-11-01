@@ -35,11 +35,11 @@
       <div class="admin-page-title">
         <br>
         <br>
-        <h4>Create Product</h4>
+        <h4>Edit Product</h4>
       </div>
       <br>
-      <div class="new-product">
-        <form action="/newproduct" method="post">
+      <div class="edit-product">
+        <form action="/editProduct/<%= product.id %>" method="post">
           <select name="category">
             <option disabled selected>Select Category</option>
             <option value="">Oil Painting</option>
@@ -62,7 +62,7 @@
           <textarea name="description" rows="8" cols="80" placeholder="Product Description" required></textarea>
           <br>
           <br>
-          <input class="btn btn-primary" type="submit" value="Create">
+          <input class="btn btn-primary" type="submit" name="update" value="Update">
         </form>
 
         <br>

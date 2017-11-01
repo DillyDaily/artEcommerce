@@ -20,13 +20,11 @@ module.exports = function(app){
   app.get('/contact', contact.getAll);
 
 
+  app.get('/register_login', customer.login);  // CUSTOMER LOGIN
 
-  //
-  // app.post('/customer_login/register', customer.register);  // CUSTOMER REGISTRATION
-  //
-  // app.get('/customer_login', customer.login);  // CUSTOMER LOGIN
-  //
-  // app.post('/customer_login', customer.check);  // CUSTOMER CHECK
+  app.post('/customer/register', customer.register);  // CUSTOMER REGISTRATION
+
+  app.post('/customer/login', customer.check);  // CUSTOMER CHECK
 
 
 
@@ -69,9 +67,9 @@ module.exports = function(app){
   // PRODUCTS
   app.get('/admin_product/:id', product.getOne);
 
-  app.get('/admin_product/add', product.addOne);
+  app.get('/admin_addProduct', product.addOne);
 
-  app.post('/admin_product/add', product.create);
+  app.post('/admin_addProduct', product.create);
 
   app.get('/editProduct/:id', product.edit);
 
