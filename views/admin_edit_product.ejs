@@ -38,8 +38,8 @@
         <h4>Edit Product</h4>
       </div>
       <br>
-      <div class="new-product">
-        <form action="/newproduct" method="post">
+      <div class="edit-product">
+        <form action="/editProduct/<%= product.id %>" method="post">
           <select name="category">
             <option disabled selected>Select Category</option>
             <option value="">Oil Painting</option>

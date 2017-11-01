@@ -74,7 +74,7 @@ module.exports = {
       .then((result)=>{
         let editProduct = result[0];
 
-        res.render('admin_edit_product')
+        res.render('admin_edit_product', {product: editProduct})
       })
   },
 
@@ -91,7 +91,7 @@ module.exports = {
       .where('id', req.params.id)
       .then(()=>{
 
-        res.redirect('/admin_dashboard')
+        res.redirect('/admin_product_profile')
       })
   },
 
