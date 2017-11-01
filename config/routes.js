@@ -87,11 +87,10 @@ module.exports = function(app){
 
   // USER SESSION FUNCTION
   function userAuth(req, res, next){
-    console.log(req.session);
     if(req.session.user || req.session.admin){
       next();
     }else{
-      res.redirect("/users/login");
+      res.redirect("/");
     }
   }
 
@@ -100,7 +99,7 @@ module.exports = function(app){
     if(req.session.admin){
       next();
     }else{
-      res.redirect('/login');
+      res.redirect('/');
     }
   }
 
