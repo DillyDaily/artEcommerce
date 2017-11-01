@@ -64,7 +64,8 @@ module.exports = {
   categoryGetAll: function(req, res){
     knex('category')
       .then((result)=>{
-        res.render('admin_product_category');
+        console.log(result);
+        res.render('admin_product_category', {category: result});
       })
   },
 
@@ -75,14 +76,22 @@ module.exports = {
 
   // It creates new category - Rahul
   create: function(req, res){
-    knex()
-
-
-
-
-
-    res.render('Testing Create Category')
+    knex('category')
+      .insert({
+        category_name: req.body.category_name,
+        category_description: req.body.category_description
+      })
+      .then(()=>{
+        res.redirect('/admin_product_category');
+      })
   },
+
+  // It log admin outs
+  logout: function(req, res){
+    delete req.session.admin;
+    res.redirect('/admin_logout');
+  },
+
 
   // It takes you to edits cagetory page - Rahul
   categoryEdit: function(req, res){
