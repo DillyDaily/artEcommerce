@@ -24,7 +24,7 @@
                 <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="/admin_product_category">Product Category</a>
                 <a class="nav-item nav-link" href="/admin_product_dashboard">Product Dashboard</a>
-                <a class="nav-item nav-link" href="/admin_product/add">Create Product</a>
+                <a class="nav-item nav-link" href="/admin_addProduct">Create Product</a>
             </div>
             <a href="/admin_logout"><button type="button" class="btn btn-danger">Log Out</button></a>
           </div>
@@ -55,7 +55,7 @@
                 </div>
 
             </div>
-            <p class="text-center view-button animate-box"><a href="/admin_edit_product" class="btn btn-primary btn-outline btn-lg">Edit</a></p>
+            <p class="text-center view-button animate-box"><a href="/editProduct/<%= art.id %>" class="btn btn-primary btn-outline btn-lg">Edit</a></p>
             <p class="text-center view-button animate-box"><a href="/deleteProduct/<%= art.id %>" class="btn btn-primary btn-outline btn-lg">Delete</a></p>
         </div>
       </div>
