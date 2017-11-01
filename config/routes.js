@@ -5,7 +5,8 @@ const home = require("../controllers/home.js");
 const product = require("../controllers/product.js");
 const register_login = require("../controllers/register_login.js");
 const items = require("../controllers/items.js");
-const admin = require("../controllers/admin.js")
+const admin = require("../controllers/admin.js");
+const customer = require("../controllers/customer.js");
 
 
 module.exports = function(app){
@@ -33,9 +34,17 @@ module.exports = function(app){
   // EVERYTHING BELOW THIS LINE IS PROTECTED
   app.use(userAuth);
 
-  app.get('/contact/:id', contact.getOne);
+  app.get('/customer', cutomer.getAll);
 
-  app.get('/deleteContact/:id', contact.delete);
+  app.get('customer/:id', cutomer.getOne);
+
+  app.post('/customer', customer.create);
+
+  app.get('/customerEdit/:id', customer.edit);
+
+  app.get('/customerDelete/:id', customer.delete);
+
+  app.post('/customerUpdate/:id', customer.update);
 
   app.get('/cart/:itemName', items.addToCart);
 
@@ -44,6 +53,8 @@ module.exports = function(app){
 
   // ADMIN DASHBOARD
   app.get('/admin_dashboard', admin.dashboard);
+
+  app.get('/admin_logout', admin.logout);
 
   // CATEGORIES
   app.get('/admin_product_category', admin.categoryGetAll);
@@ -80,7 +91,7 @@ module.exports = function(app){
     if(req.session.user || req.session.admin){
       next();
     }else{
-      res.redirect("/users/login")
+      res.redirect("/users/login");
     }
   }
 
