@@ -3,11 +3,9 @@ const about = require("../controllers/about.js");
 const contact = require("../controllers/contact.js");
 const home = require("../controllers/home.js");
 const product = require("../controllers/product.js");
-const register_login = require("../controllers/register_login.js");
 const items = require("../controllers/items.js");
 const admin = require("../controllers/admin.js");
 const customer = require("../controllers/customer.js");
-
 
 module.exports = function(app){
 
@@ -21,32 +19,26 @@ module.exports = function(app){
 
   app.get('/contact', contact.getAll);
 
-  app.get('/register_login', register_login.login);  // CUSTOMER LOGIN
 
-  app.post('/register_login', register_login.check);  // CHECK CUSTOMER
+  app.get('/register_login', customer.login);  // CUSTOMER LOGIN
 
-  app.post('/register_login/register', register_login.register);  // REGISTER NEW CUSTOMER
+  app.post('/customer/register', customer.register);  // CUSTOMER REGISTRATION
+
+  app.post('/customer/login', customer.check);  // CUSTOMER CHECK
+
+
+
 
   app.get('/admin_login', admin.login);
 
   app.post('/admin_login', admin.check);
 
+  app.get('/cart/:itemName', items.addToCart);
+
   // EVERYTHING BELOW THIS LINE IS PROTECTED
   app.use(userAuth);
 
-  app.get('/customer', customer.getAll);
-
-  app.get('customer/:id', customer.getOne);
-
-  app.post('/customer', customer.create);
-
-  app.get('/customerEdit/:id', customer.edit);
-
-  app.get('/customerDelete/:id', customer.delete);
-
-  app.post('/customerUpdate/:id', customer.update);
-
-  app.get('/cart/:itemName', items.addToCart);
+  // app.get('customer/:id', customer.getOne); // CUSTOMER GET ONE AFTER LOGGED IN
 
   // EVERYTHING BELOW THIS LINE IS ADMIN PROTECTED
   app.use(adminAuth);

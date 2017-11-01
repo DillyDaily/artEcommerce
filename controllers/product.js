@@ -38,7 +38,7 @@ module.exports = {
       .where('id', req.params.id)
       .then((product)=>{
         let item = product[0];
-        res.render('work', {art: item})
+        res.render('admin_product_profile', {art: item})
       })
   },
 
