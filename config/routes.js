@@ -34,9 +34,9 @@ module.exports = function(app){
   // EVERYTHING BELOW THIS LINE IS PROTECTED
   app.use(userAuth);
 
-  app.get('/customer', cutomer.getAll);
+  app.get('/customer', customer.getAll);
 
-  app.get('customer/:id', cutomer.getOne);
+  app.get('customer/:id', customer.getOne);
 
   app.post('/customer', customer.create);
 
