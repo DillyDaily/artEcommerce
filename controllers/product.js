@@ -1,26 +1,13 @@
 const knex = require("../db/knex.js");
 
 module.exports = {
-  // CHANGE ME TO AN ACTUAL FUNCTION
+
+  // USER EXPERIENCE
   index: function(req, res) {
     knex('product')
       .then((result)=>{
-    knex('images')
-        .then((images)=>{
         
-          res.render("product", {product: result, img: images});
-        })
-      })
-  },
-
-  getAll: function(req, res) {
-    knex('product')
-      .then((result)=> {
-
-        res.render("admin_edit_product", {product: result});
-      })
-      .catch((err)=>{
-        console.error(err)
+          res.render("product", {product: result});
       })
   },
 
@@ -30,6 +17,19 @@ module.exports = {
       .then((result)=>{
 
         res.render("product_profile", {item: result[0]})
+      })
+  },
+
+
+  //ADMIN EXPERIENCE
+  getAll: function(req, res) {
+    knex('product')
+      .then((result)=> {
+
+        res.render("admin_product_dashboard", {product: result});
+      })
+      .catch((err)=>{
+        console.error(err)
       })
   },
 
@@ -56,6 +56,7 @@ module.exports = {
       .insert({
         product_name: req.body.name,
         product_description: req.body.description,
+        image: req.body.image,
         quantity: req.body.quantity,
         price: req.body.price,
         sales_tax: req.body.tax
@@ -82,6 +83,7 @@ module.exports = {
       .update({
         product_name: req.body.name,
         product_description: req.body.description,
+        image: req.body.image,
         quantity: req.body.quantity,
         price: req.body.price,
         sales_tax: req.body.tax
