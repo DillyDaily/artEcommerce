@@ -7,8 +7,7 @@ module.exports = {
       .then((result)=>{
     knex('images')
         .then((images)=>{
-          
-          
+        
           res.render("product", {product: result, img: images});
         })
       })
@@ -22,6 +21,15 @@ module.exports = {
       })
       .catch((err)=>{
         console.error(err)
+      })
+  },
+
+  userGetOne: function(req,res){
+    knex('product')
+      .where('id', req.params.id)
+      .then((result)=>{
+
+        res.render("product_profile", {item: result[0]})
       })
   },
 
