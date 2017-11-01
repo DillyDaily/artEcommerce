@@ -25,8 +25,8 @@ module.exports = {
   getAll: function(req, res) {
     knex('product')
       .then((result)=> {
-
-        res.render("admin_product_dashboard", {product: result});
+      console.log(result);
+        res.render("product_dashboard", {product: result});
       })
       .catch((err)=>{
         console.error(err)
