@@ -20,13 +20,11 @@ module.exports = function(app){
   app.get('/contact', contact.getAll);
 
 
+  app.get('/register_login', customer.login);  // CUSTOMER LOGIN
 
-  //
-  // app.post('/customer_login/register', customer.register);  // CUSTOMER REGISTRATION
-  //
-  // app.get('/customer_login', customer.login);  // CUSTOMER LOGIN
-  //
-  // app.post('/customer_login', customer.check);  // CUSTOMER CHECK
+  app.post('/customer/register', customer.register);  // CUSTOMER REGISTRATION
+
+  app.post('/customer/login', customer.check);  // CUSTOMER CHECK
 
 
 
