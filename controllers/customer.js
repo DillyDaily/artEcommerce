@@ -34,9 +34,11 @@ module.exports = {
 
         })
         .catch((err)=>{
-          console.log(err);
           req.session.userMsg = "You entered invalid data. Please register again."
-          res.redirect('/register_login');
+          req.session.save(()=>{
+            res.redirect('/register_login');
+          });
+
         })
     })
   },
@@ -55,18 +57,21 @@ module.exports = {
             req.session.save(()=>{
               res.redirect('/register_login');
             });
-            console.log("You have successfully logged in. " +  req.session.user);
-
             req.session.userMsg = "You have successfully logged in.";
           }else{
             req.session.userMsg = "You entered an invalid email or password.";
-            res.redirect('/register_login');
+            req.session.save(()=>{
+              res.redirect('/register_login');
+            });
+
           }
         })
       })
       .catch((err)=>{
-        req.session.userMsg = "You entered an invalid email or password."
-        res.redirect('/register_login')
+        req.session.userMsg = "You entered an invalid email or password.";
+        req.session.save(()=>{
+          res.redirect('/register_login');
+        });
       })
   }
 
