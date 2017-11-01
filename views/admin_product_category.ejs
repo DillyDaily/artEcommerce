@@ -39,11 +39,11 @@
       </div>
       <br>
       <div class="new-category">
-        <form action="/newcategory" method="post">
-          <input type="text" name="name" placeholder="Category Name">
+        <form action="/admin_product_category" method="post">
+          <input type="text" name="category_name" placeholder="Category Name">
           <br>
           <br>
-          <textarea name="name" rows="8" cols="80" placeholder="Description"></textarea>
+          <textarea name="category_description" rows="8" cols="80" placeholder="Description"></textarea>
           <br>
           <br>
           <input type="submit" value="Create">
@@ -52,8 +52,32 @@
       </div>
       <div class="categories">
         <div class="admin-page-title">
+          <br>
           <h4>All Categories</h4>
+          <br>
         </div>
+        <table class="table">
+          <thead class="thead-light">
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DESCRIPTION</th>
+            <th>ACTION</th>
+          </thead>
+          <tbody>
+            <% for(let i=0; i<category.length; i++){ %>
+              <tr>
+                <td><%= category[i].id %></td>
+                <td><%= category[i].category_name %></td>
+                <td><%= category[i].category_description %></td>
+                <td>
+                  <button type="button" class="btn btn-success btn-sm">Edit</button>
+                  <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+              </tr>
+            <% } %>
+
+          </tbody>
+        </table>
       </div>
       <br>
 
