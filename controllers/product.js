@@ -24,7 +24,7 @@ module.exports = {
       })
   },
 
-  userOne: function(req,res){
+  userGetOne: function(req,res){
     knex('product')
       .where('id', req.params.id)
       .then((result)=>{
