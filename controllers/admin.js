@@ -64,7 +64,6 @@ module.exports = {
   categoryGetAll: function(req, res){
     knex('category')
       .then((result)=>{
-        console.log(result);
         res.render('admin_product_category', {category: result});
       })
   },

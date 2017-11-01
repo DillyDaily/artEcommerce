@@ -90,7 +90,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 animate-box text-center">
-						<h2 class="intro-heading">Product</h2>
+						<h2 class="intro-heading"><%= item.product_name %></h2>
 						<p><span>Created with <i class="icon-heart3"></i> by Christa Patrice</p>
 					</div>
 				</div>
@@ -102,21 +102,22 @@
 			<div class="container">
 				<div class="row">
 
-				<div class="col-md-4 prod text-center animate-box">
-                    <div class="product" style="background-image: url(images/art1.jpg);">
+				<div class="col-md-12 prod text-center animate-box">
+                    <div class="product" style="background-image: url(/images/art1.jpg);">
                         <a href="/product/<%= item.id %>" class="view">
                             <i class="icon-plus"></i>
                         </a>
                      </div>
-                    <h3><a href="#"> <%= item.product_name %> </a></h3>
+                    <h3><%= item.product_name %></h3>
                     <span class="price">$ <%= item.price %> </span>
                 </div>
 
             </div>
             <p class="text-center view-button animate-box"><a href="#" class="btn btn-primary btn-outline btn-lg">Add to Cart</a></p>
         </div>
-                
-		<div class="cp-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
+    </div>
+
+		<div class="cp-counters" style="background-image: url(/images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
 			<div class="cp-narrow-content animate-box">
 				<div class="row" >
 					<div class="col-md-4 text-center">
