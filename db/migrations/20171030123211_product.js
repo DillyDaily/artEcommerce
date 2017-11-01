@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
         .index();
         table.string('product_name');
         table.text('product_description');
+        table.text('image');
         table.integer('quantity');
         table.decimal('price');
         table.decimal('sales_tax');
