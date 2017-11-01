@@ -67,9 +67,9 @@ module.exports = function(app){
   // PRODUCTS
   app.get('/admin_product/:id', product.getOne);
 
-  app.get('/admin_product/add', product.addOne);
+  app.get('/admin_addProduct', product.addOne);
 
-  app.post('/admin_product/add', product.create);
+  app.post('/admin_addProduct', product.create);
 
   app.get('/editProduct/:id', product.edit);
 
