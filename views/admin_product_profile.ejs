@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Product Dashboard</title>
+    <title>Admin - Product Profile</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,36 +34,32 @@
     <div class="container">
       <div class="admin-page-title">
         <br>
-        <h3>Product Dashboard</h3>
         <br>
+        <h4>Product Profile</h4>
       </div>
+      <br>
+      <div class="new-product">
+          
+		<div id="cp-product-section">
+			<div class="container">
+				<div class="row">
 
-      <table class="table">
-        <thead class="thead-light">
-          <th>PRODUCT NAME</th>
-          <th>DESCRIPTION</th>
-          <th>IMG URL</th>
-          <th>QUANTITY</th>
-          <th>PRICE</th>
-          <th>SALES TAX</th>
-          </thead>
-        <tbody>
+				<div class="col-md-4 prod text-center animate-box">
+                    <div class="product" style="background-image: url(images/art1.jpg);">
+                        <a href="/product/<%= art.id %>" class="view">
+                            <i class="icon-plus"></i>
+                        </a>
+                     </div>
+                    <h3><a href="#"> <%= art.product_name %> </a></h3>
+                    <span class="price">$ <%= art.price %> </span>
+                </div>
 
-					<% for (let i=0; i<product.length; i++) {  %>
-            <tr>
-              <td><%= product[i].product_name %></td>
-              <td><%= product[i].product_description %></td>
-              <td><a href="/admin_product/<%= product[i].id %>"><%= product[i].image %></a></td>
-              <td><%= product[i].quantity %></td>
-              <td><%= product[i].price %></td>
-              <td><%= product[i].sales_tax %></td>
-
-            </tr>
-				  	
-					<% } %>
-					
-				</tbody>
-      </table>
+            </div>
+            <p class="text-center view-button animate-box"><a href="/admin_edit_product" class="btn btn-primary btn-outline btn-lg">Edit</a></p>
+        </div>
+      </div>
+      <br>
+      <br>
     </div>
     <footer class="admin-footer">
       <div class="container">
