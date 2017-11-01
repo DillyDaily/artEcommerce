@@ -14,6 +14,8 @@ module.exports = function(app){
 
   app.get('/product', product.index);
 
+  app.get('/product/:id', product.userGetOne);
+
   app.get('/about', about.getAll);
 
   app.get('/contact', contact.getAll);

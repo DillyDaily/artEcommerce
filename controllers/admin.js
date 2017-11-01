@@ -17,7 +17,7 @@ module.exports = {
       .then((result)=>{
 
         let user = result[0];
-        
+
         encryption.check(user, req.body).then((isValid)=>{
 
           if(isValid){
@@ -55,7 +55,7 @@ module.exports = {
           .then((order_detail)=>{
             knex('order_status')
               .then((order_status)=>{
-                render('admin_dashboard', {customer: customer, order_detail: order_detail, order_status, order_status});
+                res.render('admin_dashboard', {customer: customer, order_detail: order_detail, order_status, order_status});
               })
           })
       })
@@ -75,6 +75,12 @@ module.exports = {
 
   // It creates new category - Rahul
   create: function(req, res){
+    knex()
+
+
+
+
+
     res.render('Testing Create Category')
   },
 
