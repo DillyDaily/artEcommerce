@@ -3,7 +3,6 @@ const about = require("../controllers/about.js");
 const contact = require("../controllers/contact.js");
 const home = require("../controllers/home.js");
 const product = require("../controllers/product.js");
-const items = require("../controllers/items.js");
 const admin = require("../controllers/admin.js");
 const customer = require("../controllers/customer.js");
 const cart = require("../controllers/cart.js");
@@ -34,7 +33,7 @@ module.exports = function(app){
 
   app.post('/admin_login', admin.check);
 
-  app.get('cart', cart.index);
+  app.get('cart', cart.cartPage);
 
   app.get('/cart/:itemName', cart.addToCart);
 
