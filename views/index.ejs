@@ -143,11 +143,11 @@
 				<% for (let i = 0; i< 3; i++){ %>
 					<div class="col-md-4 prod text-center animate-box">
 						<div class="product" style="background-image: url(<%= product[i].image %>);">
-							<a href="#" class="view">
+							<a href="/products/<%= product[i].id %>">" class="view">
 								<i class="icon-plus"></i>
 							</a>
 						</div>
-						<h3><a href="/products/<%= product[i].id %>"><%= product[i].name %></a></h3>
+						<h3><%= product[i].name %></h3>
 						<span class="price">$<%= product[i].price %></span>
 					</div>
 
