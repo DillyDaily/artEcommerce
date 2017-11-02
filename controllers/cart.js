@@ -6,7 +6,8 @@ module.exports = {
     if(!req.session.cart) {
       req.session.cart = [];
     }
-    res.render('cart', {cartObj: res.session.cart});
+    console.log(res.session.cart);
+    res.render("cart", {cartObj: res.session.cart});
   },
 
   addToCart: function(req, res) {
