@@ -122,7 +122,6 @@
 									<th>Item Name</th>
 									<th>Item Description</th>
 									<th>Item Price</th>
-									<th>TOTAL</th>
 
 							  </tr>
 								<% var total = 0; %>
@@ -135,12 +134,12 @@
 											<td><%= pdt[x].product_description %> </td>
 											<td><%= pdt[x].price %> </td>
 											<% total = total + ((pdt[x].price) * (0.06)); %>
-											<td><%= total %> </td>
 									  </tr>
 										<% } %>
 									<% } %>
 							  <% } %>
 							</table>
+							<%= total %>
 
 							<!-- // SUBMIT BUTTON -->
 							<div class="form-group">
