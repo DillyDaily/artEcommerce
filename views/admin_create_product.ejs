@@ -38,8 +38,8 @@
         <h4>Create Product</h4>
       </div>
       <br>
-      <div class="new-product">
-        <form action="/newproduct" method="post">
+      <div class="add-product">
+        <form action="/admin_addProduct" method="post">
           <select name="category">
             <option disabled selected>Select Category</option>
             <option value="">Oil Painting</option>
@@ -50,13 +50,13 @@
           <input type="text" name="name" placeholder="Product Name" required>
           <br>
           <br>
-          <input type="text" name="sale_tax" placeholder="Quantity" required>
+          <input type="number" name="quantity" placeholder="Quantity" required>
           <br>
           <br>
           <input type="text" name="price" placeholder="Price Per Unit" required>
           <br>
           <br>
-          <input type="text" name="sales_tax" placeholder="Sales Tax" required>
+          <input type="number" name="sales_tax" placeholder="Sales Tax" required>
           <br>
           <br>
           <textarea name="description" rows="8" cols="80" placeholder="Product Description" required></textarea>
