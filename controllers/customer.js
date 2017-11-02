@@ -19,7 +19,6 @@ module.exports = {
           email: encryptedUser.email,
           password: encryptedUser.password,
           phone: encryptedUser.phone,
-          email_status: true,
           address: encryptedUser.address,
           apt_suite: encryptedUser.apt_suite,
           city: encryptedUser.city,
@@ -34,6 +33,7 @@ module.exports = {
 
         })
         .catch((err)=>{
+          console.log(err);
           req.session.userMsg = "You entered invalid data. Please register again."
           req.session.save(()=>{
             res.redirect('/register_login');
@@ -79,8 +79,9 @@ module.exports = {
   profile: function(req, res){
     knex('customer')
       .where('id', req.session.user)
-      .then((result)=>{
-        res.render('customer_profile', {user: result[0]});
+      .then((customer)=>{
+        knex()
+        res.render('customer_profile', {user: customer[0]});
       })
   },
 

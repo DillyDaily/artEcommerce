@@ -100,6 +100,7 @@
 			</div>
 		</div>
 
+
 		<div id="cp-contact-section">
 			<div class="container">
 				<div class="row">
@@ -116,24 +117,65 @@
 							</li>
 						</ul>
 						<div class="tab-content" id="myTabContent">
-							<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-								<br>
-
-								<p>Name: <%= user.first_name %> <%= user.last_name %></p>
-								<p>Email: <%= user.email %></p>
-								<p>Password: ************ </p>
-								<p>Phone: <%= user.phone %></p>
-								<p>Address: <%= user.address %></p>
-								<p>Apt/suite: <%= user.apt_suite %></p>
-								<p>City: <%= user.city %></p>
-								<p>State: <%= user.state %></p>
-								<p>Zipcode: <%= user.zip %></p>
-								<br>
-								<a href="/user_logout"><button type="button" class="btn btn-danger btn-sm">Log Out</button></a>
-								<br>
+							<div class="tab-pane fade active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+								<div>
+									<br>
+									<p>Name: <%= user.first_name %> <%= user.last_name %></p>
+									<p>Email: <%= user.email %></p>
+									<p>Password: ************ </p>
+									<p>Phone: <%= user.phone %></p>
+									<p>Address: <%= user.address %></p>
+									<p>Apt/suite: <%= user.apt_suite %></p>
+									<p>City: <%= user.city %></p>
+									<p>State: <%= user.state %></p>
+									<p>Zipcode: <%= user.zip %></p>
+									<br>
+									<a href="/user_logout"><button type="button" class="btn btn-danger btn-sm">Log Out</button></a>
+									<br>
+								</div>
 							</div>
 							<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">Order stuff goes here</div>
-							<div class="tab-pane fade" id="edit_profile" role="tabpanel" aria-labelledby="edit_profile-tab">Edit Profile stuff goes here</div>
+							<div class="tab-pane fade" id="edit_profile" role="tabpanel" aria-labelledby="edit_profile-tab">
+								<div>
+									<div>
+										<br>
+										Edit Your Profile
+										<br>
+										<br>
+									</div>
+									<form action="/edit_customer_profile" method="post">
+										<div class="form-group">
+											<input type="text" name="first_name" class="form-control" value="<%= user.first_name %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="last_name" class="form-control" value="<%= user.last_name %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="email" class="form-control" value="<%= user.email %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="phone" class="form-control" value="<%= user.phone %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="address" class="form-control" value="<%= user.address %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="apt_suite" class="form-control" value="<%= user.apt_suite %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="city" class="form-control" value="<%= user.city %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="state" class="form-control" value="<%= user.state %>">
+										</div>
+										<div class="form-group">
+											<input type="text" name="zip" class="form-control" value="<%= user.zip %>">
+										</div>
+										<br>
+										<input type="submit" class="btn btn-success" value="Update">
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

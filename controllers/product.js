@@ -20,6 +20,19 @@ module.exports = {
       })
   },
 
+  addToCart: function(req, res) {
+
+    console.log("hello")
+    knex('product')
+      .where('id', req.params.id)
+      .then((result)=>{
+        
+        req.session.cart.push(result[0].id);
+        console.log(req.params.id);
+        res.redirect('/product/'+req.params.id)
+      })
+    // res.render("cart", {cartObj: res.session.cart});
+  },
 
   //ADMIN EXPERIENCE
   getAll: function(req, res) {
