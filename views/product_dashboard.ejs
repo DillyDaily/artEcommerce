@@ -53,7 +53,7 @@
 					<% for (let i=0; i<product.length; i++) {  %>
             <tr>
               
-              <td> <img src = "<%= product[i].image %>" /> </td>
+              <td> <a href="/admin_product/<%= product[i].id %>"> <img src = "<%= product[i].image %>" /> </a></td>
               <td><%= product[i].product_name %></td>
               <td><%= product[i].product_description %></td>
               <td><%= product[i].category %></td>
