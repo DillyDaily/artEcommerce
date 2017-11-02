@@ -40,6 +40,12 @@ module.exports = function(app){
   // EVERYTHING BELOW THIS LINE IS PROTECTED
   app.use(userAuth);
 
+  // This will bring user to profile page
+  app.use('/customer_profile', customer.profile);
+
+  // This will log user out
+  app.get('/user_logout', customer.logout);
+
   // app.get('customer/:id', customer.getOne); // CUSTOMER GET ONE AFTER LOGGED IN
 
   // EVERYTHING BELOW THIS LINE IS ADMIN PROTECTED

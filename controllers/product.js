@@ -46,7 +46,7 @@ module.exports = {
     knex('product')
       .then((result)=>{
 
-        res.render('admin_dashboard', {product: result})
+        res.render('admin_create_product', {product: result})
       })
 
   },
@@ -62,7 +62,7 @@ module.exports = {
         sales_tax: req.body.tax
       }, '*')
       .then((result)=>{
-        res.redirect('/admin_dashboard');
+        res.redirect('/admin_product_dashboard');
       })
       .catch((err)=>{
         console.error(err)
@@ -91,7 +91,7 @@ module.exports = {
       .where('id', req.params.id)
       .then(()=>{
 
-        res.redirect('/admin_product_profile')
+        res.redirect('/admin_product/'+ req.params.id)
       })
   },
 

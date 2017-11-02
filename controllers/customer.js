@@ -55,7 +55,7 @@ module.exports = {
             req.session.user = user.id;
 
             req.session.save(()=>{
-              res.redirect('/register_login');
+              res.redirect('/customer_profile');
             });
             req.session.userMsg = "You have successfully logged in.";
           }else{
@@ -73,6 +73,24 @@ module.exports = {
           res.redirect('/register_login');
         });
       })
+  },
+
+  // This pulls customer's profile once logs in
+  profile: function(req, res){
+    knex('customer')
+      .where('id', req.session.user)
+      .then((result)=>{
+        res.render('customer_profile', {user: result[0]});
+      })
+  },
+
+  // This will user log out
+  logout: function(req, res){
+    delete req.session.user;
+    req.session.userMsg = "You successfully logged out!";
+    req.session.save(()=>{
+      res.redirect('/register_login');
+    })
   }
 
 }
