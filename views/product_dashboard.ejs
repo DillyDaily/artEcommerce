@@ -52,7 +52,8 @@
 
 					<% for (let i=0; i<product.length; i++) {  %>
             <tr>
-              <td style="background-image: url(<%= product[i].image %>);" height=100px width=100px id="counter-animate"></td>
+              
+              <td> <img src = "<%= product[i].image %>" /> </td>
               <td><%= product[i].product_name %></td>
               <td><%= product[i].product_description %></td>
               <td><%= product[i].category %></td>
