@@ -73,9 +73,9 @@ module.exports = {
         product_description: req.body.description,
         image: req.body.image,
         quantity: req.body.quantity,
-        price: req.body.price,
-        sales_tax: req.body.tax
-      }, '*')
+        price: req.body.price
+        // sales_tax: req.body.tax
+      }, )
       .then((result)=>{
         res.redirect('/admin_product_dashboard');
       })
