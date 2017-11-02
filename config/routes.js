@@ -8,12 +8,15 @@ const customer = require("../controllers/customer.js");
 const cart = require("../controllers/cart.js");
 
 module.exports = function(app){
-
+  app.use(cartCheck);
   app.get('/', home.index);
 
   app.get('/product', product.index);
 
+  app.get('/products/cart/:id', product.addToCart);
+
   app.get('/product/:id', product.userGetOne);
+
 
   app.get('/about', about.getAll);
 
@@ -33,7 +36,7 @@ module.exports = function(app){
 
   app.post('/admin_login', admin.check);
 
-  app.get('cart', cart.cartPage);
+  app.get('/cart', cart.cartPage);
 
   app.get('/cart/:itemName', cart.addToCart);
 
@@ -42,6 +45,9 @@ module.exports = function(app){
 
   // This will bring user to profile page
   app.use('/customer_profile', customer.profile);
+
+  //This will edit customer profile
+  app.use('/edit_customer_profile/:id', customer.edit);
 
   // This will log user out
   app.get('/user_logout', customer.logout);
@@ -100,6 +106,16 @@ module.exports = function(app){
       next();
     }else{
       res.redirect('/');
+    }
+  }
+  function cartCheck(req, res, next){
+    if(!req.session.cart){
+      req.session.cart = [];
+      req.session.save(()=>{
+        next();
+      })
+    }else{
+      next();
     }
   }
 

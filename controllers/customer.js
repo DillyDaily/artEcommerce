@@ -80,10 +80,40 @@ module.exports = {
     knex('customer')
       .where('id', req.session.user)
       .then((customer)=>{
-        knex()
-        res.render('customer_profile', {user: customer[0]});
+        knex('order_detail')
+          .where('customer_id', req.session.user)
+          .then((order_detail)=>{
+            knex('product')
+              .then((product)=>{
+                res.render('customer_profile', {user: customer[0], order: order_detail, product: product});
+              })
+          })
       })
   },
+
+  // This will edit customer profile
+  edit: function(req, res){
+    knex('customer')
+      .where('id', req.params.id)
+      .update({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password,
+        phone: req.body.phone,
+        address: req.body.address,
+        apt_suite: req.body.apt_suite,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
+      })
+      .then(()=>{
+        req.session.save(()=>{
+          res.redirect('/customer_profile');
+        })
+      })
+  },
+
 
   // This will user log out
   logout: function(req, res){

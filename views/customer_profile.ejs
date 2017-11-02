@@ -134,7 +134,31 @@
 									<br>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">Order stuff goes here</div>
+							<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+
+								<div>
+									<br>
+									<table class="table">
+										<thead>
+											<th>ITEM NAME</th>
+											<th>DESCRIPTION</th>
+											<th>QUANTITY</th>
+											<th>PRICE</th>
+										</thead>
+										<tbody>
+											<% for(let i=0; i<order.length; i++){ %>
+												<% if(order[i].customer_id === user.id){ %>
+													<td><%= order[i].description %> </td>
+												<% } %>
+											<% } %>
+										</tbody>
+									</table>
+
+
+								</div>
+
+
+							</div>
 							<div class="tab-pane fade" id="edit_profile" role="tabpanel" aria-labelledby="edit_profile-tab">
 								<div>
 									<div>
@@ -143,7 +167,7 @@
 										<br>
 										<br>
 									</div>
-									<form action="/edit_customer_profile" method="post">
+									<form action="/edit_customer_profile/<%= user.id %>" method="post">
 										<div class="form-group">
 											<input type="text" name="first_name" class="form-control" value="<%= user.first_name %>">
 										</div>
