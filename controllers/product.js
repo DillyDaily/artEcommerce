@@ -28,8 +28,10 @@ module.exports = {
       .then((result)=>{
         
         req.session.cart.push(result[0].id);
-        console.log(req.params.id);
-        res.redirect('/product/'+req.params.id)
+        req.session.save(()=>{
+
+          res.redirect('/cart')
+        })
       })
     // res.render("cart", {cartObj: res.session.cart});
   },

@@ -150,8 +150,8 @@
 								<i class="icon-plus"></i>
 							</a>
 						</div>
-						<h3><a href="/product">Face</a></h3>
-						<span class="price">$48</span>
+						<h3><a href="/product/<%= product[i].id %>"><%= product[i].name %></a></h3>
+						<span class="price">$<%= product[i].price %></span>
 					</div>
 					
 					<% } %>
