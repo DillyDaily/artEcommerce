@@ -104,7 +104,7 @@
 				<% for (let i=0; i<product.length; i++) {  %>
 				<div class="col-md-4 prod text-center animate-box">
 
-					<div class="product" style="background-image: url();">
+					<div class="product" style="background-image: url(<%= product[i].image %>);">
 						<a href="/product/<%= product[i].id %>" class="view">
 							<i class="icon-plus"></i>
 						</a>

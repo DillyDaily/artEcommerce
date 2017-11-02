@@ -3,7 +3,11 @@ const knex = require("../db/knex.js");
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
   index: function(req, res) {
-    res.render("index");
-  },
+    knex('product')
+      .then((result)=>{
+
+        res.render("index", {product: result});
+      })
+  }
 
 }
