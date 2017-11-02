@@ -6,13 +6,11 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>An artist's gallery - christapatrice.com - </title>
+	<title>Online Art Gallery for Christa Patrice</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="description" content="Online art gallery for Christa Patrice" />
 	<meta name="keywords" content="arts, painting, artwork" />
 	<meta name="author" content="Marie, Ali, Rahul" />
-
-
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -59,13 +57,12 @@
 		<div class="js-fullheight cp-table">
 			<div class="cp-table-cell js-fullheight">
 				<ul>
-					<li><a href="/index">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="/product">Product</a></li>
 					<li><a href="/about">About</a></li>
 					<li><a href="/contact">Contact</a></li>
 					<li><a href="/register_login">Register/Login</a></li>
 					<li><a href="/cart">Shopping Cart</a></li>
-
 				</ul>
 				<p class="cp-social-icon">
 					<a href="#"><i class="icon-twitter2"></i></a>
@@ -101,14 +98,14 @@
 		<aside id="cp-hero" class="js-fullheight">
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
-		
+
 			   	<li style="background-image: url(images/slide_1.jpg);">
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
 			   			<div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
 			   				<div class="slider-text-inner">
-			   					<h2>Create A Motivational Template</h2>
-			   					<span>Digital Prints</span>
+			   					<h2>Find A Motivational Art</h2>
+			   					<span>Created with love</span>
 			   				</div>
 			   			</div>
 					   </div>
@@ -129,8 +126,8 @@
 			   		<div class="container">
 			   			<div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
 			   				<div class="slider-text-inner">
-			   					<h2>Start Practicing Your Course</h2>
-			   					<span>Scraped Linoleum</span>
+			   					<h2>Discover Your New Favorite Artist</h2>
+			   					<span>In Kentucky</span>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -144,16 +141,17 @@
 				<div class="row">
 
 				<% for (let i = 0; i< 3; i++){ %>
+					<%= console.log("Hellllllooooooooo") %>
 					<div class="col-md-4 prod text-center animate-box">
 						<div class="product" style="background-image: url(<%= product[i].image %>);">
-							<a href="#" class="view">
+							<a href="/products/<%= product[i].id %>" class="view">
 								<i class="icon-plus"></i>
 							</a>
 						</div>
-						<h3><a href="/products/<%= product[i].id %>"><%= product[i].name %></a></h3>
+						<h3><%= product[i].name %></h3>
 						<span class="price">$<%= product[i].price %></span>
 					</div>
-					
+
 					<% } %>
 					<p class="text-center view-button animate-box"><a href="/product" class="btn btn-primary btn-outline btn-lg">See More Artwork</a></p>
 				</div>
@@ -165,8 +163,8 @@
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center animate-box ">
 						<div class="heading-section">
-							<h2>Our Services</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h2>Art Work</h2>
+							<p>Choose from a varity of mediums</p>
 						</div>
 					</div>
 				</div>
@@ -174,37 +172,33 @@
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<div class="icon">
-								<span><i class="icon-mobile"></i></span>
+								<span><i class="icon-pencil2"></i></span>
 							</div>
-							<h3>Abstract Art</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3>Oil Painting</h3>
+							<p>Oil painting is the process of painting with pigments with a medium of drying oil as the binder.</p>
 						</div>
 					</div>
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<div class="icon">
-								<span><i class="icon-browser"></i></span>
+								<span><i class="icon-camera"></i></span>
 							</div>
-							<h3>Pop Art</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3>Prints</h3>
+							<p>Printmaking normally covers only the process of creating prints that have an element of originality.</p>
 						</div>
 					</div>
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<div class="icon">
-								<span><i class="icon-toolbox"></i></span>
+								<span><i class="icon-hammer"></i></span>
 							</div>
-							<h3>Photorealism</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<h3>Linoleum Carvings</h3>
+							<p>is a printmaking technique, a variant of woodcut in which a sheet of linoleum is used for a relief.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
 
 		<div class="cp-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
 			<div class="cp-narrow-content animate-box">
@@ -230,7 +224,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<h3 class="section-title">Christa</h3>
-							<p>Christa Patrice, was born ‘positively peculiar’ … winning a plethora of  awards & accolades for her Art in middle & high school,  she decided to further her education at the University of Kentucky, from which she obtained a BFA in Painting & Graphic Design in 2002. This wife (Marcus Harris) mother of three sons (Solomon, Azziah & Amani) has reemerged onto Louisville, KY’s art scene, exhibiting work that reflects her world perspective as an ultra-sensitive, self-aware, perfectly-imperfect, Christ-bearing woman of color.  She considers art an instrument of healing and intends to obtain a Master’s Degree concentrating in Art Therapy.  After which, she plans to open her own Gallery/Studio & Counseling Center encouraging & guiding others through the healing powers of art.</p>
+							<p>Christa Patrice, was born ‘positively peculiar’ … winning a plethora of  awards & accolades for her Art in middle & high school,  she decided to further her <a href="/about">more...</a></p>
 						</div>
 
 						<div class="col-md-4 col-md-push-1">

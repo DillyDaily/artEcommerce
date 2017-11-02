@@ -4,13 +4,13 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>An artist's gallery - christapatrice.com - </title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-<meta name="keywords" content="arts, painting, artwork" />
-<meta name="author" content="Marie, Ali, Rahul" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Online Art Gallery for Christa Patrice</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Online art gallery for Christa Patrice" />
+	<meta name="keywords" content="arts, painting, artwork" />
+	<meta name="author" content="Marie, Ali, Rahul" />
 
 
   	<!-- Facebook and Twitter integration -->
@@ -58,13 +58,12 @@
 			<div class="js-fullheight cp-table">
 				<div class="cp-table-cell js-fullheight">
 					<ul>
-						<li><a href="/index">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li><a href="/product">Product</a></li>
 						<li><a href="/about">About</a></li>
 						<li><a href="/contact">Contact</a></li>
 						<li><a href="/register_login">Register/Login</a></li>
 						<li><a href="/cart">Shopping Cart</a></li>
-
 					</ul>
 					<p class="cp-social-icon">
 						<a href="#"><i class="icon-twitter2"></i></a>
@@ -105,10 +104,8 @@
 				<div class="row">
 
 				<div class="col-md-12 prod text-center animate-box">
-                    <div class="product" style="background-image: url(<%= item.image %>);">
-                        <a href="/product/<%= item.id %>" class="view">
-                            <i class="icon-plus"></i>
-                        </a>
+                    <div class="product_profile" style="background-image: url(<%= item.image %>);">
+
                      </div>
                     <h3><%= item.product_name %></h3>
                     <span class="price">$ <%= item.price %> </span>
@@ -143,7 +140,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<h3 class="section-title">Christa</h3>
-							<p>Christa Patrice, was born ‘positively peculiar’ … winning a plethora of  awards & accolades for her Art in middle & high school,  she decided to further her education at the University of Kentucky, from which she obtained a BFA in Painting & Graphic Design in 2002. This wife (Marcus Harris) mother of three sons (Solomon, Azziah & Amani) has reemerged onto Louisville, KY’s art scene, exhibiting work that reflects her world perspective as an ultra-sensitive, self-aware, perfectly-imperfect, Christ-bearing woman of color.  She considers art an instrument of healing and intends to obtain a Master’s Degree concentrating in Art Therapy.  After which, she plans to open her own Gallery/Studio & Counseling Center encouraging & guiding others through the healing powers of art.</p>
+							<p>Christa Patrice, was born ‘positively peculiar’… winning a plethora of  awards & accolades for her Art in middle & high school,  she decided to further her <a href="/about">more...</a></p>
 						</div>
 
 						<div class="col-md-4 col-md-push-1">
@@ -181,7 +178,6 @@
 				</div>
 			</div>
 		</footer>
-
 	</div>
 
 	<!-- jQuery -->
