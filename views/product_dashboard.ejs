@@ -20,7 +20,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav navbar-right">
-              <a class="nav-item nav-link active" href="/admin_dashboard">Home
+              <a class="nav-item nav-link active" href="/admin_dashboard">Dashboard
                 <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="/admin_product_category">Product Category</a>
                 <a class="nav-item nav-link" href="/admin_product_dashboard">Product Dashboard</a>
@@ -39,9 +39,10 @@
 
       <table class="table">
         <thead class="thead-light">
+          <th>THUMBNAIL</th>
           <th>PRODUCT NAME</th>
           <th>DESCRIPTION</th>
-          <th>IMG URL</th>
+          <th>CATEGORY</th>
           <th>QUANTITY</th>
           <th>PRICE</th>
           <th>SALES TAX</th>
@@ -53,7 +54,9 @@
 					<% for (let i=0; i<product.length; i++) {  %>
             <tr>
               <td><%= product[i].product_name %></td>
+              <td><%= product[i].product_name %></td>
               <td><%= product[i].product_description %></td>
+              <td><%= product[i].category %></td>
               <td><a href="/admin_product/<%= product[i].id %>"><%= product[i].image %></a></td>
               <td><%= product[i].quantity %></td>
               <td><%= product[i].price %></td>
