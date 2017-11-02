@@ -12,9 +12,11 @@ module.exports = function(app){
   app.get('/', home.index);
 
   app.get('/product', product.index);
+
   
   app.get('/products/cart/:id', product.addToCart);
   
+
   app.get('/product/:id', product.userGetOne);
 
 
@@ -45,6 +47,9 @@ module.exports = function(app){
 
   // This will bring user to profile page
   app.use('/customer_profile', customer.profile);
+
+  //This will edit customer profile
+  app.use('/edit_customer_profile/:id', customer.edit);
 
   // This will log user out
   app.get('/user_logout', customer.logout);
