@@ -141,9 +141,10 @@
 				<div class="row">
 
 				<% for (let i = 0; i< 3; i++){ %>
+					<%= console.log("Hellllllooooooooo") %>
 					<div class="col-md-4 prod text-center animate-box">
 						<div class="product" style="background-image: url(<%= product[i].image %>);">
-							<a href="/products/<%= product[i].id %>">" class="view">
+							<a href="/products/<%= product[i].id %>" class="view">
 								<i class="icon-plus"></i>
 							</a>
 						</div>
