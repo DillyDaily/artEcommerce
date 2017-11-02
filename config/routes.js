@@ -33,7 +33,7 @@ module.exports = function(app){
 
   app.post('/admin_login', admin.check);
 
-  app.get('cart', cart.cartPage);
+  app.get('/cart', cart.cartPage);
 
   app.get('/cart/:itemName', cart.addToCart);
 
