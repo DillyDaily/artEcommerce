@@ -139,7 +139,8 @@
 								<div>
 									<br>
 									<table class="table">
-										<thead>
+										<thead class="thead-light">
+											<th>ID</th>
 											<th>ITEM NAME</th>
 											<th>DESCRIPTION</th>
 											<th>QUANTITY</th>
@@ -148,16 +149,16 @@
 										<tbody>
 											<% for(let i=0; i<order.length; i++){ %>
 												<% if(order[i].customer_id === user.id){ %>
+													<td><%= order[i].id %> </td>
+													<td><%= order[i].item_name %> </td>
 													<td><%= order[i].description %> </td>
+													<td><%= order[i].quantity %> </td>
+													<td><%= order[i].price %> </td>
 												<% } %>
 											<% } %>
 										</tbody>
 									</table>
-
-
 								</div>
-
-
 							</div>
 							<div class="tab-pane fade" id="edit_profile" role="tabpanel" aria-labelledby="edit_profile-tab">
 								<div>
