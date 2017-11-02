@@ -97,9 +97,11 @@
 				</div>
 			</div>
 		</div>
+
 		<aside id="cp-hero" class="js-fullheight">
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
+		
 			   	<li style="background-image: url(images/slide_1.jpg);">
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
@@ -109,7 +111,7 @@
 			   					<span>Digital Prints</span>
 			   				</div>
 			   			</div>
-			   		</div>
+					   </div>
 			   	</li>
 			   	<li style="background-image: url(images/slide_2.jpg);">
 			   		<div class="overlay-gradient"></div>
@@ -140,8 +142,10 @@
 		<div id="cp-product-section">
 			<div class="container">
 				<div class="row">
+
+				<% for (let i = 0; i< 3; i++){ %>
 					<div class="col-md-4 prod text-center animate-box">
-						<div class="product" style="background-image: url(images/art1.jpg);">
+						<div class="product" style="background-image: url(<%= product[i].image %>);">
 							<a href="#" class="view">
 								<i class="icon-plus"></i>
 							</a>
@@ -149,25 +153,8 @@
 						<h3><a href="/product">Face</a></h3>
 						<span class="price">$48</span>
 					</div>
-					<div class="col-md-4 prod text-center animate-box">
-						<div class="product" style="background-image: url(images/art2.jpg);">
-							<a href="#" class="view">
-								<i class="icon-plus"></i>
-							</a>
-						</div>
-						<h3><a href="/product">Monk</a></h3>
-						<span class="price">$109</span>
-					</div>
-
-					<div class="col-md-4 prod text-center animate-box">
-						<div class="product" style="background-image: url(images/art3.jpg);">
-							<a href="/product" class="view">
-								<i class="icon-plus"></i>
-							</a>
-						</div>
-						<h3><a href="/product">Mona</a></h3>
-						<span class="price">$89</span>
-					</div>
+					
+					<% } %>
 					<p class="text-center view-button animate-box"><a href="/product" class="btn btn-primary btn-outline btn-lg">See More Artwork</a></p>
 				</div>
 			</div>

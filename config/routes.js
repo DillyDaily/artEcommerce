@@ -13,7 +13,9 @@ module.exports = function(app){
 
   app.get('/product', product.index);
 
+  
   app.get('/products/cart/:id', product.addToCart);
+  
 
   app.get('/product/:id', product.userGetOne);
 

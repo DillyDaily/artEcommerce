@@ -115,13 +115,30 @@
 
 							<!-- // TABLE WITH CART ITEMS -->
 							<table>
+
+
+							  <tr>
+							    <th>Item ID</th>
+									<th>Item Name</th>
+									<th>Item Description</th>
+									<th>Item Price</th>
+									<th>TOTAL</th>
+
+							  </tr>
+								<% var total = 0; %>
 								<% for(var i = 0; i < cartObj.length; i++) { %>
-							  <tr>
-							    <th>Item Name</th>
-							  </tr>
-							  <tr>
-							    <td><%= cartObj[i] %></td>
-							  </tr>
+									<% for(var x = 0; x < pdt.length; x++) { %>
+										<% if(cartObj[i+1] == pdt[x+1]) { %>
+									  <tr>
+									    <td><%= cartObj[i] %></td>
+											<td><%= pdt[x].product_name %> </td>
+											<td><%= pdt[x].product_description %> </td>
+											<td><%= pdt[x].price %> </td>
+											<% total = total + ((pdt[x].price) * (0.06)); %>
+											<td><%= total %> </td>
+									  </tr>
+										<% } %>
+									<% } %>
 							  <% } %>
 							</table>
 
@@ -150,7 +167,7 @@
 						</div>
 						<div class="col-md-4 text-center">
 							<span class="cp-counter js-counter" data-from="0" data-to="7497" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="cp-counter-label">Instagram Likes</span>
+							<span class="cp-counter-label">DeviantArt Likes</span>
 						</div>
 					</div>
 				</div>
