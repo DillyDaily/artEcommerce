@@ -122,24 +122,30 @@
 									<th>Item Name</th>
 									<th>Item Description</th>
 									<th>Item Price</th>
+									<th>Item Tax</th>
 
 							  </tr>
 								<% var total = 0; %>
+								<% var grandTotal = 0; %>
+								<% var tax = 0.06; %>
 								<% for(var i = 0; i < cartObj.length; i++) { %>
-									<% for(var x = 0; x < pdt.length; x++) { %>
-										<% if(cartObj[i+1] == pdt[x+1]) { %>
 									  <tr>
 									    <td><%= cartObj[i] %></td>
-											<td><%= pdt[x].product_name %> </td>
-											<td><%= pdt[x].product_description %> </td>
-											<td><%= pdt[x].price %> </td>
-											<% total = total + ((pdt[x].price) * (0.06)); %>
+											<td><%= pdt[cartObj[i]].product_name %> </td>
+											<td><%= pdt[cartObj[i]].product_description %> </td>
+											<td><%= pdt[cartObj[i]].price %> </td>
+											<% total = parseFloat(Math.round((pdt[cartObj[i]].price) * 100)/ 100); %>
+											<% let itemTax = (total * tax).toFixed(2); %>
+
+											<% total = (total + (total * tax)); %>
+											<% grandTotal = (grandTotal + total); %>
+											<td><%= itemTax; %></td>
 									  </tr>
-										<% } %>
-									<% } %>
+
 							  <% } %>
 							</table>
-							<%= total %>
+							Shipping: $ 10.00</br>
+							Grand Total: $ <%= (grandTotal + 10).toFixed(2); %>
 
 							<!-- // SUBMIT BUTTON -->
 							<div class="form-group">
