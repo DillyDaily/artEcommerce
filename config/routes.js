@@ -33,12 +33,18 @@ module.exports = function(app){
 
   app.post('/admin_login', admin.check);
 
-  app.get('cart', cart.cartPage);
+  app.get('/cart', cart.cartPage);
 
   app.get('/cart/:itemName', cart.addToCart);
 
   // EVERYTHING BELOW THIS LINE IS PROTECTED
   app.use(userAuth);
+
+  // This will bring user to profile page
+  app.use('/customer_profile', customer.profile);
+
+  // This will log user out
+  app.get('/user_logout', customer.logout);
 
   // app.get('customer/:id', customer.getOne); // CUSTOMER GET ONE AFTER LOGGED IN
 
