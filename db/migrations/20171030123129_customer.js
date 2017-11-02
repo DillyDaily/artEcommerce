@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
         table.string('email');
         table.string('password');
         table.bigInteger('phone');
-        table.boolean('email_status');
         table.text('address');
         table.string('apt_suite');
         table.string('city');

@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
   </head>
   <body>
     <header>
@@ -50,8 +50,13 @@
                             <i class="icon-plus"></i>
                         </a>
                      </div>
-                    <h3><a href="#"> <%= art.product_name %> </a></h3>
-                    <span class="price">$ <%= art.price %> </span>
+
+                 <div>
+                          <p> <%= art.image %> </p>
+                          <p>Product Name: <%= art.product_name %> </p>
+                          <p>Product Description: <%= art.product_description %></p>
+                          <p>Product Price: $ <%= art.price %></p>
+                  </div>
                 </div>
 
             </div>
