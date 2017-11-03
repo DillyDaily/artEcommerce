@@ -5,7 +5,8 @@ module.exports = {
   cartPage: function(req, res) {
     knex('product')
       .then((pdtResult) => {
-        res.render("cart", {cartObj: req.session.cart, pdt: pdtResult});
+        let userLogged = req.session.user ? true:false;
+        res.render("cart", {cartObj: req.session.cart, pdt: pdtResult, isLogged: userLogged});
       });
 
   },
@@ -13,5 +14,10 @@ module.exports = {
   addToCart: function(req, res) {
     req.session.cart.push(req.params.itemName);
     res.redirect('/cart');
+  },
+  checkout: function(req, res){
+    delete req.session.cart;
+
+    res.redirect("/")
   }
 }

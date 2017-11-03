@@ -25,6 +25,7 @@ module.exports = function(app){
 
   app.get('/contact', contact.getAll);
 
+  app.post('/checkout', cart.checkout);
 
   app.get('/register_login', customer.login);  // CUSTOMER LOGIN
 
