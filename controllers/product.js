@@ -66,7 +66,6 @@ module.exports = {
       .then((product)=>{
     knex('category')
         .then((category)=>{
-console.log(category);
           res.render('admin_create_product', {product: product, category: category})
         })
       })
