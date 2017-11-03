@@ -11,6 +11,14 @@
 *	Edit this section
 *
 * ======================================================= */
+
+.shoppingCartTotalDiv {
+  padding: 20px;
+  margin: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
 body {
   font-family: "Karla", Arial, sans-serif;
   line-height: 1.8;
@@ -34,7 +42,7 @@ body.menu-show {
   color: #000;
 }
 #more-product:hover{
-  color: #000 !important;  
+  color: #000 !important;
 }
 
 

@@ -40,8 +40,12 @@ module.exports = {
   getAll: function(req, res) {
     knex('product')
       .then((result)=> {
-      console.log(result);
-        res.render("product_dashboard", {product: result});
+      knex('category')
+      .then((category)=>{
+
+        res.render("product_dashboard", {product: result, category:category});
+      })
+
       })
       .catch((err)=>{
         console.error(err)
@@ -59,9 +63,12 @@ module.exports = {
 
   addOne: function(req, res){
     knex('product')
-      .then((result)=>{
-
-        res.render('admin_create_product', {product: result})
+      .then((product)=>{
+    knex('category')
+        .then((category)=>{
+console.log(category);
+          res.render('admin_create_product', {product: product, category: category})
+        })
       })
 
   },
@@ -73,7 +80,10 @@ module.exports = {
         product_description: req.body.description,
         image: req.body.image,
         quantity: req.body.quantity,
-        price: req.body.price
+
+        price: req.body.price,
+        category_id: req.body.category_id
+
         // sales_tax: req.body.tax
       }, )
       .then((result)=>{
