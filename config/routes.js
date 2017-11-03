@@ -9,6 +9,7 @@ const cart = require("../controllers/cart.js");
 
 module.exports = function(app){
   app.use(cartCheck);
+  
   app.get('/', home.index);
 
   app.get('/product', product.index);
@@ -27,6 +28,8 @@ module.exports = function(app){
   app.post('/checkout', cart.checkout);
 
   app.get('/register_login', customer.login);  // CUSTOMER LOGIN
+
+
 
   app.post('/customer/register', customer.register);  // CUSTOMER REGISTRATION
 
@@ -121,6 +124,7 @@ module.exports = function(app){
       next();
     }
   }
+
 
   app.use(function(req, res){
 
