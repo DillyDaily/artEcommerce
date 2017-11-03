@@ -11,6 +11,14 @@
 *	Edit this section
 *
 * ======================================================= */
+
+.shoppingCartTotalDiv {
+  padding: 20px;
+  margin: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
 body {
   font-family: "Karla", Arial, sans-serif;
   line-height: 1.8;
@@ -26,6 +34,17 @@ body.menu-show {
   height: 100%;
   width: 100%;
 }
+
+/* this is for more product button on index page */
+#more-product{
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+#more-product:hover{
+  color: #000 !important;
+}
+
 
 #cp-wrapper {
   height: 100%;
