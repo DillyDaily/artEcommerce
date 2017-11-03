@@ -74,7 +74,11 @@ module.exports = {
           .then((order_detail)=>{
             knex('product')
               .then((product)=>{
-                res.render('customer_profile', {user: customer[0], order: order_detail, product: product});
+
+                // this checks if user is logged in or not. If logged in than it will make user profile menu appear in menus not user login
+                let userLogged = req.session.user ? true:false;
+
+                res.render('customer_profile', {user: customer[0], order: order_detail, product: product, isLogged: userLogged});
               })
           })
       })
