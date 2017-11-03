@@ -20,11 +20,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav navbar-right">
-              <a class="nav-item nav-link active" href="/admin_dashboard">Home
+              <a class="nav-item nav-link active" href="/admin_dashboard">Dashboard
                 <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="/admin_product_category">Product Category</a>
                 <a class="nav-item nav-link" href="/admin_product_dashboard">Product Dashboard</a>
-                <a class="nav-item nav-link" href="/admin_addProduct">Create Product</a>
             </div>
             <a href="/admin_logout"><button type="button" class="btn btn-danger">Log Out</button></a>
           </div>
@@ -45,14 +44,12 @@
 				<div class="row">
 
 				<div class="col-md-4 prod text-center animate-box">
-                    <div class="product" style="background-image: url(images/art1.jpg);">
-                        <a href="/product/<%= art.id %>" class="view">
-                            <i class="icon-plus"></i>
-                        </a>
+                    <div><img src = "<%= art.image %>" /> 
+                           
                      </div>
 
                  <div>
-                          <p> <%= art.image %> </p>
+
                           <p>Product Name: <%= art.product_name %> </p>
                           <p>Product Description: <%= art.product_description %></p>
                           <p>Product Price: $ <%= art.price %></p>
