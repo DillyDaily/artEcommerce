@@ -51,6 +51,8 @@
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
 
+		<script src="https://js.stripe.com/v3/"></script>
+
 	</head>
 
 	<body>
@@ -114,42 +116,72 @@
 							<h3>Your Items are listed here</h3>
 
 							<!-- // TABLE WITH CART ITEMS -->
-							<table>
+							<table class="table">
 
 
-							  <tr>
-							    <th>Item ID</th>
-									<th>Item Name</th>
-									<th>Item Description</th>
-									<th>Item Price</th>
-									<th>Item Tax</th>
-
-							  </tr>
+							  <thead class="thead-dark">
+									<tr>
+										<th scope="col">Item ID</th>
+										<th scope="col">Item Name</th>
+										<th scope="col">Item Description</th>
+										<th scope="col">Item Price</th>
+										<th scope="col">Item Tax</th>
+									</tr>
+								</thead>
 								<% var total = 0; %>
 								<% var grandTotal = 0; %>
 								<% var tax = 0.06; %>
 								<% for(var i = 0; i < cartObj.length; i++) { %>
-									  <tr>
-									    <td><%= cartObj[i] %></td>
-											<td><%= pdt[cartObj[i]].product_name %> </td>
-											<td><%= pdt[cartObj[i]].product_description %> </td>
-											<td><%= pdt[cartObj[i]].price %> </td>
-											<% total = parseFloat(Math.round((pdt[cartObj[i]].price) * 100)/ 100); %>
-											<% let itemTax = (total * tax).toFixed(2); %>
 
-											<% total = (total + (total * tax)); %>
-											<% grandTotal = (grandTotal + total); %>
-											<td><%= itemTax; %></td>
-									  </tr>
+								<tbody>
+									<tr>
+										<td><%= cartObj[i] %></td>
+										<td><%= pdt[cartObj[i]].product_name %> </td>
+										<td><%= pdt[cartObj[i]].product_description %> </td>
+										<td><%= pdt[cartObj[i]].price %> </td>
+										<% total = parseFloat(Math.round((pdt[cartObj[i]].price) * 100)/ 100); %>
+										<% let itemTax = (total * tax).toFixed(2); %>
 
-							  <% } %>
+										<% total = (total + (total * tax)); %>
+										<% grandTotal = (grandTotal + total); %>
+										<td><%= itemTax; %></td>
+									</tr>
+
+									<% } %>
+								</tbody>
+
 							</table>
-							Shipping: $ 10.00</br>
-							Grand Total: $ <%= (grandTotal + 10).toFixed(2); %>
+							<div class="shoppingCartTotalDiv">
+								<div>
+									<p>Shipping: $ 10.00</p>
+									<p>Grand Total: $ <%= (grandTotal + 10).toFixed(2); %></p>
+
+
+										<form action="/your-server-side-code" method="POST">
+										  <script
+										    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+										    data-key="pk_test_mYHn4d9AFhScljDDifgHMZaT"
+										    data-amount="999"
+										    data-name="Christa Patrice"
+										    data-description="Widget"
+										    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+										    data-locale="auto">
+										  </script>
+										</form>
+								</div>
+
+
+
+
+
+
+
+
+							</div>
 
 							<!-- // SUBMIT BUTTON -->
 							<div class="form-group">
-								<input type="submit" value="Checkout" class="btn btn-primary">
+								<!-- <input type="submit" value="Checkout" class="btn btn-primary"> -->
 							</div>
 
 						</div>
@@ -242,6 +274,7 @@
 
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
+
 
 	</body>
 </html>
