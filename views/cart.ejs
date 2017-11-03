@@ -142,7 +142,6 @@
 										<% total = parseFloat(Math.round((pdt[cartObj[i]].price) * 100)/ 100); %>
 										<% let itemTax = (total * tax).toFixed(2); %>
 
-
 										<% total = (total + (total * tax)); %>
 										<% grandTotal = (grandTotal + total); %>
 										<td><%= itemTax; %></td>
@@ -161,7 +160,7 @@
 									  <script
 									    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 									    data-key="pk_test_mYHn4d9AFhScljDDifgHMZaT"
-									    data-amount="999"
+
 									    data-name="Christa Patrice"
 									    data-description="Widget"
 									    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
@@ -178,7 +177,6 @@
 
 
 							</div>
-
 
 							<!-- // SUBMIT BUTTON -->
 							<div class="form-group">
