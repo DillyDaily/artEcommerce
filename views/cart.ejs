@@ -132,10 +132,10 @@
 									<tr>
 
 										<td><%= cartObj[i] %></td>
-										<td><%= pdt[cartObj[i]].product_name %> </td>
-										<td><%= pdt[cartObj[i]].product_description %> </td>
-										<td><%= pdt[cartObj[i]].price %> </td>
-										<% total = parseFloat(Math.round((pdt[cartObj[i]].price) * 100)/ 100); %>
+										<td><%= pdt[cartObj[i]-1].product_name %> </td>
+										<td><%= pdt[cartObj[i]-1].product_description %> </td>
+										<td><%= pdt[cartObj[i]-1].price %> </td>
+										<% total = parseFloat(Math.round((pdt[cartObj[i]-1].price) * 100)/ 100); %>
 										<% let itemTax = (total * tax).toFixed(2); %>
 										<% total = (total + (total * tax)); %>
 										<% grandTotal = (grandTotal + total); %>
@@ -151,11 +151,11 @@
 									<p>Shipping: $ 10.00</p>
 									<p>Grand Total: $ <%= (grandTotal + 10).toFixed(2); %></p>
 
-									<form action="/your-server-side-code" method="POST">
+									<form action="/checkout" method="POST">
 									  <script
 									    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 									    data-key="pk_test_mYHn4d9AFhScljDDifgHMZaT"
-											data-amount="43599"
+											data-amount="43584"
 									    data-name="Christa Patrice"
 									    data-description="Widget"
 									    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
