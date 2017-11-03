@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,7 +33,7 @@
     <div class="container">
       <div class="admin-page-title">
         <br>
-        <h3>Admin Dashboard</h3>
+        <h3>Registered Customers</h3>
         <br>
       </div>
 
@@ -42,6 +42,10 @@
           <th>NAME</th>
           <th>EMAIL</th>
           <th>CITY, STATE</th>
+          <th>ORDER</th>
+          <th>DESCRIPTION</th>
+          <th>QUANTITY</th>
+          <th>PRICE</th>
         </thead>
         <tbody>
 
@@ -50,9 +54,19 @@
               <td><%= customer[i].first_name %> <%= customer[i].last_name %></td>
               <td><%= customer[i].email %></td>
               <td><%= customer[i].city %>, <%= customer[i].state %></td>
+        
+              <% for(let k=0; k<order_detail.length; k++ ){ %>
+                <% if (customer[i].id === order_detail[k].customer_id) { %>
 
-            </tr>
-        <%  } %>
+                  <td><%= order_detail[k].item_name %></td>
+                  <td><%= order_detail[k].description %></td>
+                  <td><%= order_detail[k].quantity %></td>
+                  <td><%= order_detail[k].price %></td>
+                  
+                  <%  } %>
+                  <%  } %>
+                  <%  } %>
+                </tr>
 
         </tbody>
       </table>
