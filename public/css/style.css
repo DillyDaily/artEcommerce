@@ -27,6 +27,17 @@ body.menu-show {
   width: 100%;
 }
 
+/* this is for more product button on index page */
+#more-product{
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+#more-product:hover{
+  color: #000 !important;  
+}
+
+
 #cp-wrapper {
   height: 100%;
   width: 100%;
