@@ -5,6 +5,7 @@ module.exports = {
   index: function(req, res) {
     knex('product')
       .then((result)=>{
+        // delete req.session.cart;
 
         res.render("index", {product: result});
       })

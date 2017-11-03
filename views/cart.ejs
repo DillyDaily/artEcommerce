@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Christa Patrice</title>
+		<title>Online Art Gallery for Christa Patrice</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 		<meta name="keywords" content="arts, painting, artwork" />
@@ -57,18 +57,16 @@
 
 	<body>
 
-// START STYLING
-
 		<nav id="cp-main-nav" role="navigation">
 			<a href="#" class="js-cp-nav-toggle cp-nav-toggle active"><i></i></a>
 			<div class="js-fullheight cp-table">
 				<div class="cp-table-cell js-fullheight">
 					<ul>
-						<li><a href="/index">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li><a href="/product">Product</a></li>
 						<li><a href="/about">About</a></li>
 						<li><a href="/contact">Contact</a></li>
-						<li><a href="/customer_login">Login/Register</a></li>
+						<li><a href="/register_login">Register/Login</a></li>
 						<li><a href="/cart">Shopping Cart</a></li>
 					</ul>
 
@@ -98,7 +96,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 animate-box text-center">
-							<h2 class="intro-heading">A place to find art</h2>
+							<h2 class="intro-heading">Welcome to your Shopping Cart</h2>
 							<p><span>Created with <i class="icon-heart3"></i> by Christa Patrice</p>
 						</div>
 					</div>
@@ -106,8 +104,6 @@
 			</div>
 
 			<div>
-				<h1>CONTENT GOES HERE - 'cart.ejs'</h1>
-
 				<div class="container">
 					<div class="row">
 
@@ -117,8 +113,6 @@
 
 							<!-- // TABLE WITH CART ITEMS -->
 							<table class="table">
-
-
 							  <thead class="thead-dark">
 									<tr>
 										<th scope="col">Item ID</th>
@@ -128,6 +122,7 @@
 										<th scope="col">Item Tax</th>
 									</tr>
 								</thead>
+
 								<% var total = 0; %>
 								<% var grandTotal = 0; %>
 								<% var tax = 0.06; %>
@@ -135,14 +130,13 @@
 
 								<tbody>
 									<tr>
+
 										<td><%= cartObj[i] %></td>
 										<td><%= pdt[cartObj[i]].product_name %> </td>
 										<td><%= pdt[cartObj[i]].product_description %> </td>
 										<td><%= pdt[cartObj[i]].price %> </td>
 										<% total = parseFloat(Math.round((pdt[cartObj[i]].price) * 100)/ 100); %>
 										<% let itemTax = (total * tax).toFixed(2); %>
-
-
 										<% total = (total + (total * tax)); %>
 										<% grandTotal = (grandTotal + total); %>
 										<td><%= itemTax; %></td>
@@ -161,24 +155,16 @@
 									  <script
 									    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 									    data-key="pk_test_mYHn4d9AFhScljDDifgHMZaT"
-									    data-amount="999"
+											data-amount="43599"
 									    data-name="Christa Patrice"
 									    data-description="Widget"
 									    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
 									    data-locale="auto">
 									  </script>
 									</form>
+
 								</div>
-
-
-
-
-
-
-
-
 							</div>
-
 
 							<!-- // SUBMIT BUTTON -->
 							<div class="form-group">
@@ -217,7 +203,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<h3 class="section-title">Christa</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+								<p>Christa Patrice, was born ‘positively peculiar’ … winning a plethora of  awards & accolades for her Art in middle & high school,  she decided to further her <a href="/about">more...</a></p>
 							</div>
 
 							<div class="col-md-4 col-md-push-1">
@@ -249,7 +235,7 @@
 									<a href="#"><i class="icon-dribbble2"></i></a>
 									<a href="#"><i class="icon-youtube"></i></a>
 								</p>
-								<p>&copy; 2017. All Rights Reserved.Z</p>
+								<p>&copy; 2017. All Rights Reserved.</p>
 							</div>
 						</div>
 					</div>
