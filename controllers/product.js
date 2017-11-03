@@ -79,8 +79,10 @@ module.exports = {
         product_description: req.body.description,
         image: req.body.image,
         quantity: req.body.quantity,
+
         price: req.body.price,
         category_id: req.body.category_id
+
         // sales_tax: req.body.tax
       }, )
       .then((result)=>{
