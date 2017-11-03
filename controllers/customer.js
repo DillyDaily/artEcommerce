@@ -13,18 +13,7 @@ module.exports = {
   register: function(req, res){
     encryption.hash(req.body).then((encryptedUser)=>{
       knex('customer')
-        .insert({
-          first_name: encryptedUser.first_name,
-          last_name: encryptedUser.last_name,
-          email: encryptedUser.email,
-          password: encryptedUser.password,
-          phone: encryptedUser.phone,
-          address: encryptedUser.address,
-          apt_suite: encryptedUser.apt_suite,
-          city: encryptedUser.city,
-          state: encryptedUser.state,
-          zip: encryptedUser.zip
-        })
+        .insert(encryptedUser)
         .then(()=>{
           req.session.userMsg = "You have successfully registered! Please log in to continue!";
           req.session.save(()=>{
