@@ -6,8 +6,9 @@ module.exports = {
   index: function(req, res) {
     knex('product')
       .then((result)=>{
-        
-          res.render("product", {product: result});
+
+          let userLogged = req.session.user ? true:false;
+          res.render("product", {product: result, isLogged: userLogged});
       })
   },
 
@@ -15,8 +16,8 @@ module.exports = {
     knex('product')
       .where('id', req.params.id)
       .then((result)=>{
-
-        res.render("product_profile", {item: result[0]})
+        let userLogged = req.session.user ? true:false;
+        res.render("product_profile", {item: result[0], isLogged: userLogged})
       })
   },
 
@@ -26,7 +27,7 @@ module.exports = {
     knex('product')
       .where('id', req.params.id)
       .then((result)=>{
-        
+
         req.session.cart.push(result[0].id);
         req.session.save(()=>{
 

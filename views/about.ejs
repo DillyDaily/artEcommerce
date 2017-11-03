@@ -62,7 +62,11 @@
 						<li><a href="/product">Product</a></li>
 						<li><a href="/about">About</a></li>
 						<li><a href="/contact">Contact</a></li>
+						<% if (isLogged){ %>
+						<li><a href="/customer_profile">Customer Profile</a></li>
+						<% }else{%>
 						<li><a href="/register_login">Register/Login</a></li>
+						<% } %>
 						<li><a href="/cart">Shopping Cart</a></li>
 					</ul>
 					<p class="cp-social-icon">
@@ -147,7 +151,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<span class="cp-counter js-counter" data-from="0" data-to="7497" data-speed="5000" data-refresh-interval="50"></span>
-						<span class="cp-counter-label">Instagram Likes</span>
+						<span class="cp-counter-label">DeviantArt Likes</span>
 					</div>
 				</div>
 			</div>

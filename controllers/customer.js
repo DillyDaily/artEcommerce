@@ -7,7 +7,10 @@ module.exports = {
     if(!req.session.userMsg){
       req.session.userMsg = "";
     }
-    res.render('customer_login', {message: req.session.userMsg});
+
+    let userLogged = req.session.user ? true:false;
+
+    res.render('customer_login', {message: req.session.userMsg, isLogged: userLogged});
   },
 
   register: function(req, res){
