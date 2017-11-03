@@ -13,5 +13,10 @@ module.exports = {
   addToCart: function(req, res) {
     req.session.cart.push(req.params.itemName);
     res.redirect('/cart');
+  },
+  checkout: function(req, res){
+    delete req.session.cart;
+
+    res.redirect("/")
   }
 }

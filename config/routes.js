@@ -13,9 +13,9 @@ module.exports = function(app){
 
   app.get('/product', product.index);
 
-  
+
   app.get('/products/cart/:id', product.addToCart);
-  
+
 
   app.get('/product/:id', product.userGetOne);
 
@@ -24,6 +24,7 @@ module.exports = function(app){
 
   app.get('/contact', contact.getAll);
 
+  app.post('/checkout', cart.checkout);
 
   app.get('/register_login', customer.login);  // CUSTOMER LOGIN
 
