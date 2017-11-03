@@ -5,9 +5,11 @@ module.exports = {
   index: function(req, res) {
     knex('product')
       .then((result)=>{
+
       
         let userLogged = req.session.user ? true:false;
         res.render("index", {product: result, isLogged: userLogged});
+
       })
   }
 
