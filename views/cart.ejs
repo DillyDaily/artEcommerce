@@ -152,25 +152,32 @@
 
 							</table>
 							<div class="shoppingCartTotalDiv">
-								Shipping: $ 10.00</br>
-								Grand Total: $ <%= (grandTotal + 10).toFixed(2); %>
+								<div>
+									<p>Shipping: $ 10.00</p>
+									<p>Grand Total: $ <%= (grandTotal + 10).toFixed(2); %></p>
+
+
+										<form action="/your-server-side-code" method="POST">
+										  <script
+										    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+										    data-key="pk_test_mYHn4d9AFhScljDDifgHMZaT"
+										    data-amount="999"
+										    data-name="Christa Patrice"
+										    data-description="Widget"
+										    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+										    data-locale="auto">
+										  </script>
+										</form>
+								</div>
+
+
+
+
+
+
+
+
 							</div>
-
-							<div>
-								<form action="/your-server-side-code" method="POST">
-								  <script
-								    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-								    data-key="pk_test_mYHn4d9AFhScljDDifgHMZaT"
-								    data-amount="999"
-								    data-name="Christa Patrice"
-								    data-description="Widget"
-								    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-								    data-locale="auto">
-								  </script>
-								</form>
-
-							</div>
-
 
 							<!-- // SUBMIT BUTTON -->
 							<div class="form-group">
