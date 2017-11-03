@@ -52,6 +52,7 @@
 
 					<% for (let i=0; i<product.length; i++) {  %>
 
+
             <tr>  
               <td> <a href="/admin_product/<%= product[i].id %>"> <img src = "<%= product[i].image %>" /> </a></td>
               <td><%= product[i].product_name %></td>
@@ -62,6 +63,7 @@
 
               <% } %>
             <% } %>
+
               <td><%= product[i].quantity %></td>
               <td><%= product[i].price %></td>
               <td class="text-center view-button animate-box"><a href="/editProduct/<%= product[i].id %>" class="btn btn-primary btn-outline btn-lg">Edit</a></td>
