@@ -51,20 +51,26 @@
         <tbody>
 
 					<% for (let i=0; i<product.length; i++) {  %>
-            <tr>
-              
+
+            <tr>  
               <td> <a href="/admin_product/<%= product[i].id %>"> <img src = "<%= product[i].image %>" /> </a></td>
               <td><%= product[i].product_name %></td>
               <td><%= product[i].product_description %></td>
-              <td><%= product[i].category %></td>
+            <% for (let k=0; k<category.length; k++) { %>
+              <% if (product[i].category_id === category[k].id) { %>
+               <td> <%= category[k].category_name %></td>
+
+              <% } %>
+            <% } %>
               <td><%= product[i].quantity %></td>
               <td><%= product[i].price %></td>
               <td class="text-center view-button animate-box"><a href="/editProduct/<%= product[i].id %>" class="btn btn-primary btn-outline btn-lg">Edit</a></td>
               <td class="text-center view-button animate-box"><a href="/deleteProduct/<%= product[i].id %>" class="btn btn-primary btn-outline btn-lg">Delete</a></td>
               
 
+
             </tr>
-				  	
+
 					<% } %>
 					
 				</tbody>

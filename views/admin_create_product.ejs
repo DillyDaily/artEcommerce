@@ -39,10 +39,14 @@
       <br>
       <div class="add-product">
         <form action="/admin_addProduct" method="post">
-          <select name="category">
+          <select name="category_id">
             <option disabled selected>Select Category</option>
-            <option value="1">Oil Painting</option>
-            <option value="2">Personal Artwork</option>
+           
+            <% for (let k=0; k<category.length; k++) { %>
+              
+              <option value="<%= category[k].id  %>"><%= category[k].category_name %></option>
+            <% }  %>
+
           </select>
           <br>
           <br>
