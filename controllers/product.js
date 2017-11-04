@@ -85,7 +85,7 @@ module.exports = {
         category_id: req.body.category_id
 
         // sales_tax: req.body.tax
-      }, )
+      }), // updated from '}, )' to '}),'
       .then((result)=>{
         res.redirect('/admin_product_dashboard');
       })
